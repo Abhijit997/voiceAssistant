@@ -8,6 +8,12 @@ import streamlit as st
 import streamlit_ui_home_page
 import streamlit_ui_login
 
+import socket
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(("8.8.8.8", 80))
+ip_address = s.getsockname()[0]
+print(ip_address)
+
 NEO4J_URI = st.secrets['NEO4J_URI']
 NEO4J_USER = st.secrets['NEO4J_USER']
 NEO4J_PASSWORD = st.secrets['NEO4J_PASSWORD']
