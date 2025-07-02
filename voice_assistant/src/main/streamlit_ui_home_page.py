@@ -341,11 +341,8 @@ def home_page():
                 audio_file.write(new_file.getbuffer())
                 new_files_path.append(audio_file.name)
 
-        st.write(new_files_path)
-
         if len(new_files_path) > 0:
             response = process_given_files(new_files_path, st.session_state['logged_user_details']['username'])
-            st.write(response)
             if (isinstance(response, list)) and len(response) > 0:
                 if response[0] is None:
                     st.error('Files processing failed!')
